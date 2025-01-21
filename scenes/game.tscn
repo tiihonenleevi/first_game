@@ -313,6 +313,7 @@ position_smoothing_speed = 4.0
 
 [node name="Killzone" parent="." instance=ExtResource("5_60xjh")]
 position = Vector2(224, 114)
+dmg_amount = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_cp7lv")
