@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb6nfbygjsvw4"]
+
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="1_gim2j"]
+[ext_resource type="AudioStream" uid="uid://bhf005y04xjmr" path="res://assets/sounds/hurt.wav" id="2_48pt4"]
+
+[node name="Killzone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_gim2j")
+
+[node name="Restart timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_48pt4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Restart timer" to="." method="_on_restart_timer_timeout"]

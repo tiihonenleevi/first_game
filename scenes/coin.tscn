@@ -1,0 +1,222 @@
+[gd_scene load_steps=21 format=3 uid="uid://dwev2ljn854th"]
+
+[ext_resource type="Texture2D" uid="uid://7mlrksx5dqhy" path="res://assets/sprites/coin.png" id="1_13inl"]
+[ext_resource type="Script" path="res://scripts/coin.gd" id="1_yio4k"]
+[ext_resource type="AudioStream" uid="uid://ddfrdvwm1hqlv" path="res://assets/sounds/coin.wav" id="3_yl3jr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2js3x"]
+atlas = ExtResource("1_13inl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q82lc"]
+atlas = ExtResource("1_13inl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n8jp"]
+atlas = ExtResource("1_13inl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8vgx"]
+atlas = ExtResource("1_13inl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg1ma"]
+atlas = ExtResource("1_13inl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5abw"]
+atlas = ExtResource("1_13inl")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmu45"]
+atlas = ExtResource("1_13inl")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8bkp"]
+atlas = ExtResource("1_13inl")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1vgf"]
+atlas = ExtResource("1_13inl")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cis5j"]
+atlas = ExtResource("1_13inl")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2owb"]
+atlas = ExtResource("1_13inl")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a7kj"]
+atlas = ExtResource("1_13inl")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxsp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2js3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q82lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n8jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8vgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg1ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5abw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmu45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8bkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1vgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cis5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2owb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a7kj")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbaer"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_nnefa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PickupSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7oheu"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PickupSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70dv0"]
+_data = {
+"RESET": SubResource("Animation_nnefa"),
+"pickup": SubResource("Animation_7oheu")
+}
+
+[node name="Coin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_yio4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hxsp0")
+animation = &"spin"
+autoplay = "spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jbaer")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yl3jr")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_70dv0")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

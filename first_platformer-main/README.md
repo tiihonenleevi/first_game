@@ -1,0 +1,3 @@
+This is my first game project. I started this projectby following Brackeys' YouTube video
+"[How to make a Video Game - Godot Beginner Tutorial]([url](https://youtu.be/LOhfqjmasi0?si=bxshGkBqtbNYSUBO))".
+After I was done with the tutorial I decided to expand the game more, so I would learn more about game development.
