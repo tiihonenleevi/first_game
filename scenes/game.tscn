@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://bcerf58s0ppcb"]
+[gd_scene load_steps=21 format=4 uid="uid://bcerf58s0ppcb"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_iqmu6"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_iqmu6"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jnapx"]
 [ext_resource type="PackedScene" uid="uid://ceus7y3lue2fm" path="res://scenes/player.tscn" id="1_t6mwi"]
 [ext_resource type="Texture2D" uid="uid://bvw232top6rh8" path="res://assets/sprites/world_tileset.png" id="2_220xw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bb6nfbygjsvw4" path="res://scenes/killzone.tscn" id="5_60xjh"]
 [ext_resource type="PackedScene" uid="uid://dgh1l404oiqmb" path="res://scenes/slime.tscn" id="6_ax6at"]
 [ext_resource type="FontFile" uid="uid://bjwuhglywqw6a" path="res://assets/fonts/PixelOperator8.ttf" id="7_nhtrl"]
+[ext_resource type="PackedScene" uid="uid://bjfeus4ev48ig" path="res://scenes/checkpoint.tscn" id="11_3qyu2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dtct"]
 texture = ExtResource("2_220xw")
@@ -447,3 +448,6 @@ text = "You made it!
 "
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Checkpoint" parent="." instance=ExtResource("11_3qyu2")]
+position = Vector2(72, -84)

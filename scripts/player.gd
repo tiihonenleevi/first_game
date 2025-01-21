@@ -8,6 +8,8 @@ var hp: int = 2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 
+var checkpoint_position = null
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
