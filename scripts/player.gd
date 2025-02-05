@@ -4,11 +4,20 @@ const SPEED: float = 130.0
 const JUMP_VELOCITY: float = -300.0
 
 var hp: int = 2
+var has_key: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var checkpoint_position = null
+var respawn_position: Vector2 = self.global_position
+
+func _ready() -> void:
+	# Connects the signals to player's functions
+	SignalBus.respawn.connect(respawn_values)
+	SignalBus.player_hit.connect(decrease_health)
+	SignalBus.checkpoint_reached.connect(update_respawn_position)
+	SignalBus.key_pickup.connect(key_true)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,3 +57,16 @@ func _physics_process(delta: float) -> void:
 
 func decrease_health(amount):
 	hp -= amount
+	
+	if hp <= 0:
+		hp = 0
+
+func update_respawn_position(new_position):
+	respawn_position = new_position
+
+func respawn_values():
+	hp = 2
+
+func key_true():
+	has_key = true
+	print(has_key)
