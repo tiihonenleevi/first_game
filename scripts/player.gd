@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED: float = 130.0
 const JUMP_VELOCITY: float = -300.0
 
+var speed: float = 130.0
 var hp: int = 2
 var has_key: bool = false
 var jump_counter: int = 0
@@ -10,6 +10,7 @@ var jump_counter: int = 0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var dash_timer: Timer = $DashTimer
 
 var respawn_position: Vector2 = self.global_position
 
@@ -34,9 +35,16 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		# Sets jump counter to 0, so the player can jump again
 		jump_counter = 0
-
+	
 	# Get the input direction: -1, 0 or 1
 	var direction := Input.get_axis("move_left", "move_right")
+	
+	# Handles dash (not ready yet, still need to implement the gravity negation
+	# so the dash feels better)
+	if Input.is_action_just_pressed("dash"):
+		dash_timer.start()
+		speed *= 3
+		velocity.x = direction * speed
 	
 	# Flip the sprite
 	if direction > 0:
@@ -55,9 +63,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply movement
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 
@@ -76,3 +84,7 @@ func respawn_values():
 func key_true():
 	has_key = true
 	print(has_key)
+
+
+func _on_dash_timer_timeout() -> void:
+	speed = 130.0
