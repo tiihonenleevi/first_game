@@ -1,7 +1,7 @@
 extends Control
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Start"):
+	if Input.is_action_just_pressed("start"):
 		_on_start_button_pressed()
 
 func _on_start_button_pressed() -> void:
