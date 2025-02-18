@@ -5,6 +5,7 @@ const JUMP_VELOCITY: float = -300.0
 
 var hp: int = 2
 var has_key: bool = false
+var jump_counter: int = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
@@ -20,14 +21,19 @@ func _ready() -> void:
 	SignalBus.key_pickup.connect(key_true)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Handles jump (able to double jump)
+	if Input.is_action_just_pressed("jump") and jump_counter < 1:
+		jump_counter += 1
 		jump_sound.play()
 		velocity.y = JUMP_VELOCITY
+	
+	if is_on_floor():
+		# Sets jump counter to 0, so the player can jump again
+		jump_counter = 0
 
 	# Get the input direction: -1, 0 or 1
 	var direction := Input.get_axis("move_left", "move_right")
