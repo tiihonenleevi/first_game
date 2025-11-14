@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bjfeus4ev48ig"]
 
-[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_skbdy"]
+[ext_resource type="Script" uid="uid://cc6culqlrdjam" path="res://scripts/checkpoint.gd" id="1_skbdy"]
 [ext_resource type="Texture2D" uid="uid://nhl24daysy30" path="res://assets/sprites/checkpoint_flag.png" id="2_tgiu3"]
 [ext_resource type="Texture2D" uid="uid://cgkll0yhixgtg" path="res://assets/sprites/star.png" id="3_be6o7"]
 [ext_resource type="AudioStream" uid="uid://btw5dne4jb7qy" path="res://assets/sounds/power_up.wav" id="4_8mi4c"]
@@ -59,13 +59,13 @@ shape = SubResource("RectangleShape2D_omer4")
 position = Vector2(0.5, -11.5)
 emitting = false
 amount = 10
+texture = ExtResource("3_be6o7")
 lifetime = 0.7
 one_shot = true
 speed_scale = 0.7
 explosiveness = 0.77
 randomness = 1.0
 lifetime_randomness = 0.34
-texture = ExtResource("3_be6o7")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 20.0

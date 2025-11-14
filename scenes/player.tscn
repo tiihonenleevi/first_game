@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://ceus7y3lue2fm"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_6wf16"]
+[ext_resource type="Script" uid="uid://dperat1ab8idl" path="res://scripts/player.gd" id="1_6wf16"]
 [ext_resource type="Texture2D" uid="uid://7hf7es1vo1rb" path="res://assets/sprites/knight.png" id="1_i8jpd"]
 [ext_resource type="AudioStream" uid="uid://1h71edyeyd3y" path="res://assets/sounds/jump.wav" id="3_ofhj6"]
 
@@ -194,4 +194,7 @@ bus = &"SFX"
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="CanDashTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="CanDashTimer" to="." method="_on_can_dash_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c363dgtvhy52l"]
 
-[ext_resource type="Script" path="res://scripts/pumpkin_house.gd" id="1_1q5vx"]
+[ext_resource type="Script" uid="uid://bhjl8547uho4m" path="res://scripts/pumpkin_house.gd" id="1_1q5vx"]
 [ext_resource type="Texture2D" uid="uid://b3l06th08dhrc" path="res://assets/sprites/pumpkin_house.png" id="1_berad"]
 [ext_resource type="Texture2D" uid="uid://cgkll0yhixgtg" path="res://assets/sprites/star.png" id="2_ejh3k"]
 [ext_resource type="AudioStream" uid="uid://1h71edyeyd3y" path="res://assets/sounds/jump.wav" id="4_xen32"]
@@ -29,13 +29,13 @@ shape = SubResource("RectangleShape2D_5sqa6")
 position = Vector2(0, -23)
 emitting = false
 amount = 10
+texture = ExtResource("2_ejh3k")
 lifetime = 0.7
 one_shot = true
 speed_scale = 0.7
 explosiveness = 0.77
 randomness = 1.0
 lifetime_randomness = 0.34
-texture = ExtResource("2_ejh3k")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 20.0

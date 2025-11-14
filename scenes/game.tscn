@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://bcerf58s0ppcb"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_jnapx"]
+[ext_resource type="Script" uid="uid://c656coxkdnvsj" path="res://scripts/game_manager.gd" id="1_jnapx"]
 [ext_resource type="PackedScene" uid="uid://ceus7y3lue2fm" path="res://scenes/player.tscn" id="1_t6mwi"]
 [ext_resource type="Texture2D" uid="uid://bvw232top6rh8" path="res://assets/sprites/world_tileset.png" id="2_220xw"]
 [ext_resource type="FontFile" uid="uid://bqrb5lfgxwjtt" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_iyrl5"]
@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dgh1l404oiqmb" path="res://scenes/slime.tscn" id="6_ax6at"]
 [ext_resource type="PackedScene" uid="uid://dmwifo4cduvv0" path="res://scenes/gate.tscn" id="7_07r14"]
 [ext_resource type="FontFile" uid="uid://bjwuhglywqw6a" path="res://assets/fonts/PixelOperator8.ttf" id="7_nhtrl"]
-[ext_resource type="Script" path="res://scripts/labels.gd" id="10_t86ec"]
+[ext_resource type="Script" uid="uid://cpg1xody7t53f" path="res://scripts/labels.gd" id="10_t86ec"]
 [ext_resource type="PackedScene" uid="uid://bjfeus4ev48ig" path="res://scenes/checkpoint.tscn" id="11_3qyu2"]
 [ext_resource type="PackedScene" uid="uid://b27rg2ihk2l8m" path="res://scenes/key.tscn" id="11_66fjk"]
 [ext_resource type="PackedScene" uid="uid://bjinnil3m57fb" path="res://scenes/key_checker.tscn" id="13_qhc6q"]
-[ext_resource type="Script" path="res://scripts/gate.gd" id="13_xlv3r"]
+[ext_resource type="Script" uid="uid://qe6xh23u5eqb" path="res://scripts/gate.gd" id="13_xlv3r"]
 [ext_resource type="PackedScene" uid="uid://c363dgtvhy52l" path="res://scenes/pumpkin_house.tscn" id="16_udeoo"]
 
 [sub_resource type="GDScript" id="GDScript_qlpvh"]
@@ -233,8 +233,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6736r"]
 _data = {
-"RESET": SubResource("Animation_ynlkw"),
-"move": SubResource("Animation_ykb7l")
+&"RESET": SubResource("Animation_ynlkw"),
+&"move": SubResource("Animation_ykb7l")
 }
 
 [sub_resource type="Animation" id="Animation_wrbri"]
@@ -271,8 +271,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_efcx5"]
 _data = {
-"RESET": SubResource("Animation_wrbri"),
-"move_up_and_down": SubResource("Animation_eflyn")
+&"RESET": SubResource("Animation_wrbri"),
+&"move_up_and_down": SubResource("Animation_eflyn")
 }
 
 [sub_resource type="Animation" id="Animation_50hkf"]
@@ -308,8 +308,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k4g6c"]
 _data = {
-"RESET": SubResource("Animation_50hkf"),
-"gate_open": SubResource("Animation_s0vx2")
+&"RESET": SubResource("Animation_50hkf"),
+&"gate_open": SubResource("Animation_s0vx2")
 }
 
 [node name="Game" type="Node2D"]
@@ -389,7 +389,7 @@ position = Vector2(337, -42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 libraries = {
-"": SubResource("AnimationLibrary_6736r")
+&"": SubResource("AnimationLibrary_6736r")
 }
 autoplay = "move"
 
@@ -398,7 +398,7 @@ position = Vector2(864, -91)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
 libraries = {
-"": SubResource("AnimationLibrary_efcx5")
+&"": SubResource("AnimationLibrary_efcx5")
 }
 autoplay = "move_up_and_down"
 
@@ -449,19 +449,7 @@ theme_override_fonts/font = ExtResource("7_nhtrl")
 theme_override_font_sizes/font_size = 8
 text = "Space/W to jump
 
-Or use Up arrow if you are a freak"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="ArrowKeysLabel" type="Label" parent="Labels"]
-offset_left = 117.0
-offset_top = -156.0
-offset_right = 264.0
-offset_bottom = -104.0
-theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
-theme_override_fonts/font = ExtResource("7_nhtrl")
-theme_override_font_sizes/font_size = 8
-text = "Seriously if you use arrow keys to play games get some help"
+Or use Up arrow"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -545,7 +533,7 @@ script = ExtResource("13_xlv3r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gate"]
 libraries = {
-"": SubResource("AnimationLibrary_k4g6c")
+&"": SubResource("AnimationLibrary_k4g6c")
 }
 
 [node name="KeyChecker" parent="." instance=ExtResource("13_qhc6q")]

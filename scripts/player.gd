@@ -6,13 +6,18 @@ var speed: float = 130.0
 var hp: int = 2
 var has_key: bool = false
 var jump_counter: int = 0
+var respawn_position: Vector2 = self.global_position
+
+# Vars for dashing
+const DASH_SPEED: float = 440.0
+var dashing = false
+var can_dash = true
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var dash_timer: Timer = $DashTimer
-
-var respawn_position: Vector2 = self.global_position
+@onready var can_dash_timer: Timer = $CanDashTimer
 
 func _ready() -> void:
 	# Connects the signals to player's functions
@@ -41,10 +46,11 @@ func _physics_process(delta: float) -> void:
 	
 	# Handles dash (not ready yet, still need to implement the gravity negation
 	# so the dash feels better)
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and can_dash:
 		dash_timer.start()
-		speed *= 3
-		velocity.x = direction * speed
+		can_dash_timer.start()
+		can_dash = false
+		dashing = true
 	
 	# Flip the sprite
 	if direction > 0:
@@ -63,7 +69,10 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply movement
 	if direction:
-		velocity.x = direction * speed
+		if dashing:
+			velocity.x = direction * DASH_SPEED
+		else:
+			velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -85,6 +94,8 @@ func key_true():
 	has_key = true
 	print(has_key)
 
-
 func _on_dash_timer_timeout() -> void:
-	speed = 130.0
+	dashing = false
+
+func _on_can_dash_timer_timeout() -> void:
+	can_dash = true
